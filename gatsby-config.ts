@@ -1,4 +1,7 @@
 import type { GatsbyConfig } from "gatsby";
+import * as dotenv from 'dotenv';
+
+dotenv.config()
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -12,7 +15,19 @@ const config: GatsbyConfig = {
   plugins: [{
     resolve: 'gatsby-source-wordpress',
     options: {
-      "url": ""
+      "url": process.env.WP_URL,
+      auth: {
+        htaccess: {
+          username: process.env.WP_USERNAME,
+          password: process.env.WP_PASSWORD
+        }
+      },
+      html: {
+        useGatsbyImage: false,
+      },
+      develop: {
+        hardCacheMediaFiles: true,
+      },
     }
   }, "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-sitemap", {
     resolve: 'gatsby-source-filesystem',
