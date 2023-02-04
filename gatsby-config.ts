@@ -29,7 +29,7 @@ const config: GatsbyConfig = {
         hardCacheMediaFiles: true,
       },
     }
-  }, "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-sitemap", {
+  }, "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-sitemap", 'gatsby-plugin-postcss', {
     resolve: 'gatsby-source-filesystem',
     options: {
       "name": "images",
